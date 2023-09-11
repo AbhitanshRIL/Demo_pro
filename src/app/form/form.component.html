@@ -1,0 +1,30 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--2,3 added-->
+<div class="background-image">
+<div class="center-form">
+    <Form [formGroup]="loginForm" (ngSubmit)="LoginUser()">
+      <h2>{{title}}</h2>
+      <input type="text" placeholder="Enter Name" name="user" formControlName = "user">
+      <br />
+      <span style="color: red" *ngIf="user && user.invalid && user.touched">This input field is not valid</span>
+      <br />
+      <input type="password" placeholder="Enter Password" name="password" formControlName = "password">
+      <br />
+      <span style="color: red" *ngIf="password && password.invalid && password.touched">This Password field is not valid</span>
+      <br />
+      <input type="email" placeholder="Enter Email" name="email" formControlName = "email">
+      <br/>
+      <span style="color: red" *ngIf="email && email.invalid && email.touched">This Email field is not valid</span>
+      <br />
+      <table>
+        <tr>
+          <th><input type="radio" placeholder="Age" id="lte" name="fav_language" formControlName = "age"></th>
+          <label for="lte">less than 18</label><br>
+          <th><input type="radio" placeholder="Age" id="gte" name="fav_language" formControlName = "age"></th>
+          <label for="gte">equal or more than 18</label><br>
+        </tr>
+      </table>
+      <br/>
+      <button [disabled]="loginForm.invalid">Login</button>
+    </Form>
+    </div>
+</div>
